@@ -8,11 +8,15 @@
   },
   "dependencies": {
     "@hono/node-server": "^1.19.9",
+    "@prisma/client": "^7.2.0",
+    "@prisma/extension-accelerate": "^3.0.1",
     "@types/node": "^25.0.8",
+    "dotenv": "^17.2.3",
     "hono": "^4.11.4",
     "prisma": "^6.19.2"
   },
   "devDependencies": {
-    "wrangler": "^4.4.0"
+    "dotenv-cli": "^11.0.0",
+    "wrangler": "^4.35.0"
   }
 }

@@ -2,7 +2,10 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "project-median",
   "main": "src/index.ts",
-  "compatibility_date": "2026-01-14"
+  "compatibility_date": "2026-01-14",
+  "vars": {
+    "DATABASE_URL":"prisma://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqd3RfaWQiOjEsInNlY3VyZV9rZXkiOiJza181SlJaWHU5aW1LRTJ0TkdFMUhqNmEiLCJhcGlfa2V5IjoiMDFLRVkwQVhYNkdETU04RUtCUUIxSlFTWFoiLCJ0ZW5hbnRfaWQiOiI3ZjQ0YzY0ZjBlZWQxN2JjOTEwOTEzOGJmYTQ1NmRhZmI0Y2Y2NGU4OGMyN2ZmZjM4MzJkOTkxYWFhNmI1ZGVhIiwiaW50ZXJuYWxfc2VjcmV0IjoiYjExNTY2ZGQtNWZiYi00ZGQ2LTgyZWEtYjZjZjcyYTFhYmM1In0.jpgCSfm9ShALP6XgQCXVDzAwwfa6JRIJ77QTOsrCZaU"
+  }
   // "compatibility_flags": [
   //   "nodejs_compat"
   // ],
