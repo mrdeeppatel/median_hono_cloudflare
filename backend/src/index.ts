@@ -18,7 +18,8 @@ interface Bindings {
   JWTSECRET: string
 }
 interface Variables {
-  email: unknown | string;
+  email: unknown | string
+  uuid: unknown | string
 }
 
 // Hono Generic for Bindings 
@@ -26,22 +27,23 @@ const app = new Hono<{ Bindings: Bindings, Variables: Variables }>().basePath("/
 
 app.route("/user", user)
 
+app.get("/", (c) => {
+  return c.json({ msg: "get request" })
+})
+
 // Middleware
 // for api/v1/**
 app.use(async (c, next) => {
 
-  const header = c.req.header()
-  if (!header.jwt) {
+  if (!c.req.header("jwt")) {
     return c.json({
       msg: "Token not found"
     }, 409)
   }
 
-  const jwt = header.jwt
-
   let result
   try {
-    result = await verify(jwt, c.env.JWTSECRET, "HS256")
+    result = await verify(c.req.header("jwt") || "", c.env.JWTSECRET, "HS256")
   } catch (e) {
     return c.json({
       msg: "JWT is not valid"
@@ -49,9 +51,9 @@ app.use(async (c, next) => {
   }
 
   c.set("email", result.email)
+  c.set("uuid", result.uuid)
   await next()
 
 })
-
 app.route("/blog", blog)
 export default app
